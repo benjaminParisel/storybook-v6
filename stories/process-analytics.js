@@ -1,13 +1,14 @@
-import { BpmnVisualization } from 'bpmn-visualization';
+import {BpmnVisualization} from 'bpmn-visualization';
+import './process-analytics.css';
 
-export const createBpmnVisu = () => {
-  const bpmnContainer = document.createElement('div');
-  bpmnContainer.id = 'bpmn-container';
+export const createBpmnVisu = ({labelOverlay, positionOverlay}) => {
+    const bpmnContainer = document.createElement('div');
+    bpmnContainer.id = 'bpmn-container';
+    bpmnContainer.className = 'bpmn-container';
 
-  // // initialize BpmnVisualization and load the diagram
-
-  const bpmnVisualization = new BpmnVisualization({ container: bpmnContainer});
-  const content = `<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0x0opj6" targetNamespace="http://example.bpmn.com/schema/bpmn">
+    // // initialize BpmnVisualization and load the diagram
+    const bpmnVisualization = new BpmnVisualization({container: bpmnContainer});
+    const content = `<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0x0opj6" targetNamespace="http://example.bpmn.com/schema/bpmn">
   <bpmn:process id="Process_1" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1" name="Start Event 1">
       <bpmn:outgoing>Flow_1</bpmn:outgoing>
@@ -50,9 +51,11 @@ export const createBpmnVisu = () => {
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
 </bpmn:definitions>`;
-  // console.log('param bpmnContent', bpmnContent);
-  console.log('param content', content);
-  bpmnVisualization.load(content);
 
-  return bpmnContainer;
+    bpmnVisualization.load(content);
+
+    const overlay = {position: positionOverlay, label: labelOverlay};
+    bpmnVisualization.bpmnElementsRegistry.addOverlays('Activity_1', overlay);
+
+    return bpmnContainer;
 };
