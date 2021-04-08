@@ -7,6 +7,7 @@ export const createBpmnVisu = ({
   bpmnContainer.id = 'bpmn-container';
 
   // // initialize BpmnVisualization and load the diagram
+
   const bpmnVisualization = new BpmnVisualization({ container: 'bpmn-container'});
   bpmnVisualization.load(bpmnContent);
 

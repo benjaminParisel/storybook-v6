@@ -9,9 +9,9 @@ module.exports = {
   ],
   webpackFinal: async (config, { configType }) => {
 
-    config.externals = config.externals || {};
-    Object.assign(config.externals, {
-      ['bpmn-visualization']: 'BpmnVisualization'
+    config.resolve = config.resolve || {};
+    Object.assign(config.resolve, {
+      mainFields: ['module', 'main'],
     });
 
     console.log('config', config);
