@@ -28,6 +28,7 @@
     "babel-loader": "^8.2.2"
   },
   "dependencies": {
-    "bpmn-visualization": "^0.13.0"
+    "bpmn-visualization": "^0.13.0",
+    "storybook-addon-preview": "^2.1.2"
   }
 }
