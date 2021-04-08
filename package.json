@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --no-manager-cache",
     "build-storybook": "build-storybook"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "babel-loader": "^8.2.2"
   },
   "dependencies": {
+    "@storybook/theming": "^6.2.5",
     "bpmn-visualization": "^0.13.0",
     "storybook-addon-preview": "^2.1.2"
   }
