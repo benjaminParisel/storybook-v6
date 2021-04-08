@@ -27,5 +27,7 @@
     "@storybook/html": "^6.2.5",
     "babel-loader": "^8.2.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "bpmn-visualization": "^0.13.0"
+  }
 }
